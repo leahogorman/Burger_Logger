@@ -14,7 +14,7 @@
 
 <ul>
   {{#each burgers}}
-    {{#if sleepy}}
+    {{#if devoured}}
       {{> burgers/burger-block devoured=false}}
     {{/if}}
   {{/each}}
@@ -24,8 +24,8 @@
 <form class="new-burger">
 
   <div class="form-group">
-    <label for="name">Add New Burger</label>
-    <input type="text" id="name" name="name">
+    <label for="burger_name">Add New Burger</label>
+    <input type="text" id="burger_name" name="burger_name">
   </div>
 
   <div class="form-group">
