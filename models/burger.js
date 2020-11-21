@@ -6,18 +6,18 @@ const burgers = {
       cb(res);
     });
   },
-  insertOne: function(cols, vals, cb) {
-    orm.insertOne("burgers", cols, vals, function(res) {
+  insertOne: function(burger_name, vals, cb) {
+    orm.insertOne("burgers", burger_name, vals, function(res) {
       cb(res);
     });
   },
-  updateOne: function(objColVals, condition, cb) {
-    orm.updateOne("burgers", objColVals, condition, function(res) {
+  updateOne: function(devoured, id, cb) {
+    orm.updateOne("burgers", devoured, id, function(res) {
       cb(res);
     });
   },
-  delete: function(condition, cb) {
-    orm.delete("burgers", condition, function(res) {
+  delete: function(id, cb) {
+    orm.delete("burgers", id, function(res) {
       cb(res);
     });
   }

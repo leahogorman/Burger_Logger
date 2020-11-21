@@ -26,8 +26,8 @@ function objToSql(ob) {
 }
 
 const orm = {
-  selectAll: function(tableInput, cb) {
-    let queryString = "SELECT * FROM " + tableInput + ";";
+  selectAll: function(burgers, cb) {
+    let queryString = "SELECT * FROM " + burgers + ";";
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
@@ -35,11 +35,11 @@ const orm = {
       cb(result);
     });
   },
-  insertOne: function(table, cols, vals, cb) {
-    let queryString = "INSERT INTO " + table;
+  insertOne: function(burgers, burger_name, vals, cb) {
+    let queryString = "INSERT INTO " + burgers;
 
     queryString += " (";
-    queryString += cols.toString();
+    queryString += burger_name.toString();
     queryString += ") ";
     queryString += "VALUES (";
     queryString += printQuestionMarks(vals.length);
@@ -56,13 +56,13 @@ const orm = {
     });
   },
 
-  updateOne: function(table, objColVals, condition, cb) {
-    let queryString = "UPDATE " + table;
+  updateOne: function(burgers, devoured, id, cb) {
+    let queryString = "UPDATE " + burgers;
 
     queryString += " SET ";
-    queryString += objToSql(objColVals);
+    queryString += objToSql(devoured);
     queryString += " WHERE ";
-    queryString += condition;
+    queryString += id;
 
     console.log(queryString);
     connection.query(queryString, function(err, result) {
@@ -73,10 +73,10 @@ const orm = {
       cb(result);
     });
   },
-  delete: function(table, condition, cb) {
+  delete: function(table, id, cb) {
     var queryString = "DELETE FROM " + table;
     queryString += " WHERE ";
-    queryString += condition;
+    queryString += id;
 
     connection.query(queryString, function(err, result) {
       if (err) {
