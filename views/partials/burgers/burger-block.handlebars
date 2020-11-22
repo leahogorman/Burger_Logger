@@ -3,10 +3,13 @@
 	<p>{{id}}. {{burger_name}}</p>
 	
 	<i id="icon" class="fas fa-hamburger fa-9x"></i>
-	
-	<button class="change-devoured" data-id="{{id}}" data-newDevoured="{{devoured}}">
-		{{#if devoured}}DEVOURED!{{else}}EAT ME!{{/if}}
+	{{#if devoured}}
+	<button class="change-devoured" data-id="{{1}}" data-new-devoured="{{true}}">
+		DEVOURED!
 	</button>
+	{{else}}<button class="change-devoured" data-id="{{0}}" data-new-devoured="{{false}}">
+		EAT ME!
+	</button>{{/if}}
 
 	<button class="delete-burger" data-id="{{this.id}}">DELETE!</button>
 	</div>
