@@ -6,7 +6,7 @@ $(function() {
     var newDevoured = $(this).data("new-devoured");
 
     var newDevouredState = {
-      devoured: newDevoured
+      devoured: true
     };
 
     $.ajax("/api/burgers/" + id, {
@@ -14,7 +14,7 @@ $(function() {
       data: newDevouredState
     }).then(
       function() {
-        console.log("changed devoured to", newDevoured);
+        console.log("changed devoured to", newDevouredState);
         location.reload();
       }
     );
@@ -25,7 +25,6 @@ $(function() {
 
     var newBurger = {
       burger_name: $("#burger_name").val().trim(),
-      devoured: $("[name=devoured]:checked").val().trim()
     };
 
     // Send the POST request.

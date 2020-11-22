@@ -196,7 +196,6 @@ input {
 .addBtn {
   position: absolute;
   right: 0;
-  bottom: 0;
 }
 .delete-burger:hover,
 .addBtn:hover,

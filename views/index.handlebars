@@ -11,7 +11,13 @@
     <ul class="not-eaten-burgers">
       {{#each burgers}}
         {{#unless devouerd}}
-          {{> burgers/burger-block devoured=true}}
+          <div class="burger">
+	          <p>{{id}}. {{burger_name}}</p>
+	            <i id="icon" class="fas fa-hamburger fa-9x"></i>
+                <button class="change-devoured" data-id="{{id}}" data-new-devoured="{{true}}">
+                  DEVOUR!
+                </button>
+      	  </div>
         {{/unless}}
       {{/each}}
     </ul>
@@ -23,7 +29,12 @@
     <ul class="eaten-burgers">
       {{#each burgers}}
         {{#if devoured}}
-          {{> burgers/burger-block devoured=false}}
+         <div class="burger">
+	          <p>{{id}}. {{burger_name}}</p>
+	
+	            <i id="icon" class="fas fa-hamburger fa-9x"></i>
+	            <button class="delete-burger" data-id="{{this.id}}">DELETE!</button>
+      	  </div>
         {{/if}}
       {{/each}}
     </ul>
@@ -35,10 +46,6 @@
     <div class="input-form">
         <input id="burger_name" type="text" id="burger_name" name="burger_name" placeholder="Enter Burger Name">
     </div>
-   <div class="choice-devour">
-        <input class="choice" type="radio" name="devoured" value="1"> Devoured
-        <input class="choice" type="radio" name="devoured" value="0"> Eatable
-  </div> 
 
     <button class="addBtn" type="submit">Submit!</button>
   </form>
