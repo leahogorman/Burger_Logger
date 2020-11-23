@@ -1,5 +1,6 @@
 const connection = require("../config/connection.js");
 
+// Function to print question marks for the number of values being entered into the database
 function printQuestionMarks(num) {
   let arr = [];
 
@@ -10,6 +11,7 @@ function printQuestionMarks(num) {
   return arr.toString();
 }
 
+// Helper function
 function objToSql(ob) {
   let arr = [];
 
@@ -26,6 +28,7 @@ function objToSql(ob) {
 }
 
 const orm = {
+// Gets all of the entries from the database
   selectAll: function(burgers, cb) {
     let queryString = "SELECT * FROM " + burgers + ";";
     connection.query(queryString, function(err, result) {
@@ -35,6 +38,7 @@ const orm = {
       cb(result);
     });
   },
+  // Adds one to database
   insertOne: function(burgers, burger_name, vals, cb) {
     let queryString = "INSERT INTO " + burgers;
 
@@ -55,7 +59,7 @@ const orm = {
       cb(result);
     });
   },
-
+  // Updates 1 in the database
   updateOne: function(burgers, devoured, id, cb) {
     let queryString = "UPDATE " + burgers;
 
@@ -73,6 +77,7 @@ const orm = {
       cb(result);
     });
   },
+  // removes 1 from database
   delete: function(table, id, cb) {
     var queryString = "DELETE FROM " + table;
     queryString += " WHERE ";

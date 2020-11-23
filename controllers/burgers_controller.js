@@ -2,10 +2,10 @@ const express = require("express");
 
 const router = express.Router();
 
-// Import the model (cat.js) to use its database functions.
+
 const burgers = require("../models/burger.js");
 
-// Create all our routes and set up logic within those routes where required.
+// Router.get is used to pull our data from the database. The models.burger.js connects us to our database
 router.get("/", function(req, res) {
   burgers.selectAll(function(data) {
     var hbsObject = {
@@ -16,18 +16,19 @@ router.get("/", function(req, res) {
   });
 
 });
-
+// Router.post is used to add a burger to the page
 router.post("/api/burgers", function(req, res) {
   burgers.insertOne([
-    "burger_name", "devoured"
+    "burger_name"
   ], [
-    req.body.burger_name, req.body.devoured
+    req.body.burger_name
   ], function(result) {
     // Send back the ID of the new quote
     res.json({ id: result.insertId });
   });
 });
 
+// Router.put is used to update a burger from eatable to devoured
 router.put("/api/burgers/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
@@ -45,6 +46,7 @@ router.put("/api/burgers/:id", function(req, res) {
   console.log("data", req.data);
 });
 
+// once devoured the burger can be deleted
 router.delete("/api/burgers/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 

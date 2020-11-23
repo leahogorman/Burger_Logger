@@ -3,9 +3,8 @@ $(function() {
     event.preventDefault();
 
     var id = $(this).data("id");
-    var newDevoured = $(this).data("new-devoured");
 
-    var newDevouredState = {
+    const newDevouredState = {
       devoured: true
     };
 
