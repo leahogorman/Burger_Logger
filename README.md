@@ -88,8 +88,8 @@ Daniel Ceballos -- https://github.com/shibeknight
 
 ## **Links**
 
-The Heroku live link is: https://polar-island-87219.herokuapp.com/
+The Heroku live link is: https://arcane-reaches-79904.herokuapp.com/
 
-The Github link is: https://github.com/leahogorman/Employee-Directory
-                    https://leahogorman.github.io/Employee-Directory/
+The Github link is: https://github.com/leahogorman/Burger_Logger
+                    https://leahogorman.github.io/Burger_Logger
 
